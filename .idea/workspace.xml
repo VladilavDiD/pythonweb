@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7b95a90-6031-4d74-ba0f-8a0e955b58d8" name="Changes" comment="create derictory and change file, add .gitignore, add some file were i'm next time wording" />
+    <list default="true" id="f7b95a90-6031-4d74-ba0f-8a0e955b58d8" name="Changes" comment="write server code, add instal pack flask" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,7 +53,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1758200886945</updated>
-      <workItem from="1758200888306" duration="797000" />
+      <workItem from="1758200888306" duration="1629000" />
     </task>
     <task id="LOCAL-00001" summary="create derictory and change file, add .gitignore, add some file were i'm next time wording">
       <option name="closed" value="true" />
@@ -63,7 +63,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758201674287</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="write server code, add instal pack flask">
+      <option name="closed" value="true" />
+      <created>1758202663597</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1758202663597</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -71,7 +79,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="create derictory and change file, add .gitignore, add some file were i'm next time wording" />
-    <option name="LAST_COMMIT_MESSAGE" value="create derictory and change file, add .gitignore, add some file were i'm next time wording" />
+    <MESSAGE value="write server code, add instal pack flask" />
+    <option name="LAST_COMMIT_MESSAGE" value="write server code, add instal pack flask" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/PythonWeb_1$_virtualenv.coverage" NAME="_virtualenv Coverage Results" MODIFIED="1758201155279" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/.venv/Lib/site-packages" />
