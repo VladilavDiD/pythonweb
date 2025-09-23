@@ -1,8 +1,8 @@
 import sqlite3
-from .models import User
+from .models import User   # <-- ВІДНОСНИЙ ІМПОРТ!
 
 def create_user(username, password, role='user'):
-    conn = sqlite3.connect('users/users.db')  # Змінено шлях до БД
+    conn = sqlite3.connect('users.db')  # файл БД
     c = conn.cursor()
     c.execute('INSERT INTO users (username, password_hash, role) VALUES (?, ?, ?)',
               (username, User(username, password, role).password_hash, role))
@@ -10,7 +10,7 @@ def create_user(username, password, role='user'):
     conn.close()
 
 def get_user_by_username(username):
-    conn = sqlite3.connect('users/users.db')  # Змінено шлях до БД
+    conn = sqlite3.connect('users.db')
     c = conn.cursor()
     c.execute('SELECT username, password_hash, role FROM users WHERE username=?', (username,))
     row = c.fetchone()
@@ -22,7 +22,7 @@ def get_user_by_username(username):
     return None
 
 def init_db():
-    conn = sqlite3.connect('users/users.db')  # Змінено шлях до БД
+    conn = sqlite3.connect('users.db')
     c = conn.cursor()
     c.execute('''CREATE TABLE IF NOT EXISTS users (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
