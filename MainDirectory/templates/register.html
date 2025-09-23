@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Вхід до системи - Організатор Турнірів</title>
+    <title>Реєстрація - Організатор Турнірів</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -16,7 +16,7 @@
             align-items: center;
         }
 
-        .login-container {
+        .register-container {
             background: white;
             padding: 40px;
             border-radius: 15px;
@@ -100,18 +100,6 @@
             color: #721c24;
         }
 
-        .alert-success {
-            background-color: #d4edda;
-            border: 1px solid #c3e6cb;
-            color: #155724;
-        }
-
-        .alert-info {
-            background-color: #cce7ff;
-            border: 1px solid #b8daff;
-            color: #004085;
-        }
-
         .links {
             margin-top: 20px;
         }
@@ -125,70 +113,17 @@
         .links a:hover {
             text-decoration: underline;
         }
-
-        .divider {
-            margin: 20px 0;
-            text-align: center;
-            position: relative;
-        }
-
-        .divider::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: #e1e5e9;
-        }
-
-        .divider span {
-            background: white;
-            padding: 0 15px;
-            color: #666;
-        }
-
-        .demo-accounts {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            font-size: 0.9em;
-            text-align: left;
-        }
-
-        .demo-accounts h4 {
-            margin: 0 0 10px 0;
-            color: #333;
-        }
-
-        .demo-accounts p {
-            margin: 5px 0;
-            color: #666;
-        }
     </style>
 </head>
 <body>
-    <div class="login-container">
+    <div class="register-container">
         <div class="logo">🏆</div>
-        <h1 style="margin: 0; color: #333;">Організатор Турнірів</h1>
-        <p class="subtitle">Увійдіть до системи</p>
+        <h1 style="margin: 0; color: #333;">Реєстрація</h1>
+        <p class="subtitle">Створіть новий акаунт</p>
 
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                {% for category, message in messages %}
-                    <div class="alert alert-{{ 'error' if category == 'error' else 'success' if category == 'success' else 'info' }}">
-                        {{ message }}
-                    </div>
-                {% endfor %}
-            {% endif %}
-        {% endwith %}
-
-        <div class="demo-accounts">
-            <h4>Демо-аккаунти:</h4>
-            <p><strong>Адміністратор:</strong> admin / admin123</p>
-            <p><strong>Користувач:</strong> зареєструйтеся нижче</p>
-        </div>
+        {% if error %}
+            <div class="alert alert-error">{{ error }}</div>
+        {% endif %}
 
         <form method="POST">
             <div class="form-group">
@@ -201,15 +136,11 @@
                 <input type="password" id="password" name="password" required>
             </div>
 
-            <button type="submit" class="btn">Увійти</button>
+            <button type="submit" class="btn">Зареєструватися</button>
         </form>
 
-        <div class="divider">
-            <span>або</span>
-        </div>
-
         <div class="links">
-            <p>Немає <акаунта></акаунта>? <a href="{{ url_for('users.register') }}">Зареєструватися</a></p>
+            <p>Вже є акаунт? <a href="{{ url_for('login') }}">Увійти</a></p>
             <p><a href="{{ url_for('index') }}">← Повернутися на головну</a></p>
         </div>
     </div>
