@@ -1,5 +1,5 @@
 import sqlite3
-from users.models import User
+from models import User
 
 def create_user(username, password, role='user'):
     conn = sqlite3.connect('users.db')
