@@ -2,39 +2,14 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <title>Домашня сторінка адміністратора</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .container {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 400px;
-            text-align: center;
-        }
-        h1 {
-            color: #667eea;
-        }
-        p {
-            color: #333;
-        }
-    </style>
+    <title>Адмін Панель</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <div class="container">
-        <h1>Вітаємо, адміністратор!</h1>
-        <p>Тут буде панель керування турнірами.</p>
+    <div class="container" style="text-align: center; padding: 50px;">
+        <h1 style="color: red;">Панель Адміністратора</h1>
+        <p>Вітаємо, {{ username }}. Тут ви можете керувати турнірами.</p>
+        <a href="{{ url_for('logout') }}" class="btn">Вийти</a>
     </div>
 </body>
 </html>

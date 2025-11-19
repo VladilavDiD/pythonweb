@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Організатор Турнірів</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Організатор Турнірів</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">Про нас</a></li>
+                <li><a href="#features">Можливості</a></li>
+                <li><a href="{{ url_for('login') }}" style="color: #ffeb3b;">Увійти</a></li>
+                <li><a href="{{ url_for('register') }}" style="color: #ffeb3b;">Реєстрація</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="about">
+            <h2>Про компанію</h2>
+            <p>Ми створюємо сучасну систему для організації турнірів.</p>
+        </section>
+        <section id="features">
+            <h2>Можливості платформи</h2>
+            <ul>
+                <li>Легке створення турнірів</li>
+                <li>Реєстрація учасників</li>
+                <li>Турнірні сітки</li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Організатор Турнірів</p>
+    </footer>
+</body>
+</html>
