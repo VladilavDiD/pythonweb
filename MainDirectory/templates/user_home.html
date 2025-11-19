@@ -1,15 +1,28 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <title>Кабінет</title>
+    <title>Кабінет Гравця</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <div class="container" style="text-align: center; padding: 50px;">
-        <h1>Привіт, {{ username }}!</h1>
-        <p>Це панель звичайного користувача.</p>
-        <a href="{{ url_for('logout') }}" class="btn">Вийти</a>
+    <div class="container">
+        <h1>Доступні турніри</h1>
+        <p>Гравець: {{ username }} | <a href="{{ url_for('logout') }}">Вийти</a></p>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}{% for cat, msg in messages %}<div class="{{ cat }}">{{ msg }}</div>{% endfor %}{% endif %}
+        {% endwith %}
+
+        <div class="tournaments-list">
+            {% for t in tournaments %}
+            <div class="tournament-card" style="border:1px solid #ccc; padding:15px; margin-bottom:10px; border-radius:8px; background: white;">
+                <h3>{{ t.name }} <span style="font-size:0.6em; color:gray;">({{ t.game }})</span></h3>
+                <p>📅 Дата: {{ t.date }}</p>
+                <p>{{ t.description }}</p>
+                <a href="{{ url_for('join_tournament', t_id=t.id) }}" class="btn">Прийняти участь</a>
+            </div>
+            {% endfor %}
+        </div>
     </div>
 </body>
 </html>

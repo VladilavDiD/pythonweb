@@ -1,15 +1,28 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-    <meta charset="UTF-8">
     <title>Адмін Панель</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <div class="container" style="text-align: center; padding: 50px;">
-        <h1 style="color: red;">Панель Адміністратора</h1>
-        <p>Вітаємо, {{ username }}. Тут ви можете керувати турнірами.</p>
-        <a href="{{ url_for('logout') }}" class="btn">Вийти</a>
+    <div class="container">
+        <h1>Панель Адміністратора</h1>
+        <p>Вітаємо, {{ username }} | <a href="{{ url_for('logout') }}">Вийти</a></p>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}{% for cat, msg in messages %}<div class="{{ cat }}">{{ msg }}</div>{% endfor %}{% endif %}
+        {% endwith %}
+
+        <div class="card">
+            <h3>Створити новий турнір</h3>
+            <form method="POST">
+                <input type="text" name="name" placeholder="Назва турніру" required><br><br>
+                <input type="text" name="game" placeholder="Гра (CS2, Dota 2, Football)" required><br><br>
+                <input type="date" name="date" required><br><br>
+                <textarea name="description" placeholder="Деталі турніру"></textarea><br><br>
+                <button type="submit" class="btn">Створити турнір</button>
+            </form>
+        </div>
     </div>
 </body>
 </html>
