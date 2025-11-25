@@ -1,6 +1,5 @@
 from flask import Flask, render_template, redirect, url_for, request, session, flash
-from users.db import init_db, create_user, verify_user, create_tournament, get_all_tournaments, join_tournament_db
-
+from users.db import init_db, create_user, verify_user, create_tournament, get_all_tournaments, join_tournament_db, get_user_tournaments
 app = Flask(__name__)
 app.secret_key = 'secret_key_random_string'
 
@@ -85,6 +84,13 @@ def join_tournament(t_id):
 
     return redirect(url_for('user_home'))
 
+@app.route('/my_tournaments')
+def my_tournaments():
+    if 'user_id' not in session:
+        return redirect(url_for('login'))
+
+    my_list = get_user_tournaments(session['user_id'])
+    return render_template('my_tournaments.html', username=session['username'], tournaments=my_list)
 
 if __name__ == '__main__':
     app.run(debug=True)

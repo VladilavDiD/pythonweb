@@ -111,3 +111,18 @@ def join_tournament_db(user_id, tournament_id):
     conn.commit()
     conn.close()
     return True
+
+def get_user_tournaments(user_id):
+    conn = sqlite3.connect(DB_NAME)
+    conn.row_factory = sqlite3.Row
+    c = conn.cursor()
+    sql = '''
+    SELECT t.name, t.game, t.date 
+    FROM tournaments t
+    JOIN participants p ON t.id = p.tournament_id
+    WHERE p.user_id = ?
+    '''
+    c.execute(sql, (user_id,))
+    items = c.fetchall()
+    conn.close()
+    return items

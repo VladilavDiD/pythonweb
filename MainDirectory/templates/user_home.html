@@ -20,6 +20,7 @@
                 <p>📅 Дата: {{ t.date }}</p>
                 <p>{{ t.description }}</p>
                 <a href="{{ url_for('join_tournament', t_id=t.id) }}" class="btn">Прийняти участь</a>
+                <a href="{{ url_for('my_tournaments') }}" class="btn" style="background:#4CAF50;">Мої турніри</a>
             </div>
             {% endfor %}
         </div>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <title>Мої Турніри</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Турніри, де я беру участь</h1>
+        <a href="{{ url_for('user_home') }}">← Назад до списку</a>
+
+        <div class="tournaments-list">
+            {% if tournaments %}
+                {% for t in tournaments %}
+                <div class="card">
+                    <h3>{{ t.name }}</h3>
+                    <p>Гра: {{ t.game }} | Дата: {{ t.date }}</p>
+                </div>
+                {% endfor %}
+            {% else %}
+                <p>Ви ще не записалися на жоден турнір.</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
